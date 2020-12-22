@@ -2,37 +2,37 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import org.apache.http.impl.client.HttpClients;
-
 import javax.swing.*;
-import java.net.CookieHandler;
-import java.net.CookieManager;
-import java.net.CookiePolicy;
-import java.net.http.HttpClient;
+
 
 public class AstroStock {
 
-    public static void main(String[] args) throws Exception  {
+    AstroInfo astroInfo;
+    StockInfo stockInfo;
 
-        //inputMessage();
-        getLuckyNumber();
-        //getStockInfo();
+    public AstroStock(){
+        new AstroInfo();
+        new StockInfo();
     }
 
+
     //Method which prompts user for their Star Sign
-    public static String inputMessage(){
+    public void inputMessage(){
 
         String sign = JOptionPane.showInputDialog(null, "Please input Star Sign");
 
-        return sign;
+        astroInfo.setastroSign(sign);
+
     }
 
-    //Method takes user input on star sign, sends a post request to Aztro API and gives user their lucky number of current day
-    public static void getLuckyNumber() throws Exception {
+    //Method uses star sign from AstroInfo Class to retrieve lucky number via Unirest Call to aztro API
+    public void getHoroscopeInfo() throws Exception {
 
-        //Declare String variable for star sign
-        String luckyNmr = " ";
-        //String variable is assigned through JOptionpane inputdialog in inputMessage method.
-        String sign = inputMessage();
+        String sign = astroInfo.getastroSign();
+        String message = " ";
+        String color = " ";
+        String luckyTime = " ";
+        int luckyNmr;
 
 
         //Sends API key and host credentials. Sends a post with query for selected horoscope and day
@@ -46,39 +46,56 @@ public class AstroStock {
                 .queryString("sign", sign)
                 .asJson();
 
-        //Handles the Json response from the Request, and extracts the object we want. In this case Lucky Number
-       System.out.println("Your Lucky number is: " + response.getBody().getObject().getString("lucky_number"));
+        //parse string lucky number into int
+        luckyNmr = Integer.parseInt((response.getBody().getObject().getString("lucky_number")));
+        message = response.getBody().getObject().getString("description");
+        color = response.getBody().getObject().getString("color");
 
-        //luckyNmr = (response.getBody().getObject().getString("lucky_number"));
 
-        //return luckyNmr;
-
+        astroInfo.setLuckyNumber(luckyNmr);
+        astroInfo.setDailyMessage(message);
+        astroInfo.setLuckyColor(color);
 
     }
+
 
     //Unfinished/Unimplemented method which send GET request to Alpha Vantage.
     // Currently hard coded to IBM stock and daily low point.
     //Method returns separate String variables with Stock and daily low point
-    public static String getStockInfo() throws Exception {
+    public void getStockInfo() throws Exception {
 
-        String func = " ";
-        String stock = " ";
+        String stockName = stockInfo.getStockName();
+        String stockLow = " ";
+        String stockHigh = " ";
+        String stockChange = " ";
 
         final HttpResponse<JsonNode> response = Unirest.get("https://alpha-vantage.p.rapidapi.com/query?")
                 .header("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f")
                 .header("x-rapidapi-host", "alpha-vantage.p.rapidapi.com")
                 .queryString("function","GLOBAL_QUOTE")
-                .queryString("symbol","MSFT")
+                .queryString("symbol",stockName)
                 .asJson();
 
-        //System.out.println(response.getBody().getObject().getJSONObject("Global Quote").getString("04. low"));
-        //System.out.println(response.getBody().getObject().getJSONObject("Global Quote").getString("01. symbol"));
 
-            func = (response.getBody().getObject().getJSONObject("Global Quote").getString("04. low"));
-            stock = (response.getBody().getObject().getJSONObject("Global Quote").getString("01. symbol"));
+            stockHigh = (response.getBody().getObject().getJSONObject("Global Quote").getString("03. high"));
+            stockLow = (response.getBody().getObject().getJSONObject("Global Quote").getString("04. low"));
+            stockChange = (response.getBody().getObject().getJSONObject("Global Quote").getString("10. change percent"));
 
-            return func + stock;
+            stockInfo.setStockHigh(stockHigh);
+            stockInfo.setStockLow(stockLow);
+            stockInfo.setStockChange(stockChange);
 
+
+    }
+
+    public boolean shouldYouBuy(){
+        int luckyNumber = astroInfo.getLuckyNumber();
+
+        if(luckyNumber<= 49){
+            return true;
+        }
+        else
+            return false;
 
     }
 }

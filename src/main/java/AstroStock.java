@@ -31,7 +31,7 @@ public class AstroStock {
 
         //Declare String variable for star sign
         String luckyNmr = " ";
-        //String variable is initialized through JOptionpane inputdialog in inputMessage method.
+        //String variable is assigned through JOptionpane inputdialog in inputMessage method.
         String sign = inputMessage();
 
 

@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
@@ -10,4 +9,8 @@
         <module name="AstroStock" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AstroStock" target="15" />
+    </bytecodeTargetLevel>
   </component>
+</project>

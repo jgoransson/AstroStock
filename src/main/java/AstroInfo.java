@@ -26,6 +26,7 @@ public class AstroInfo {
     }
 
     public void setLuckyNumber(int luckyNumber) {
+
         this.luckyNumber = luckyNumber;
     }
 

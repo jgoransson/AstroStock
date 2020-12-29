@@ -93,7 +93,8 @@ public class AstroStock {
 
 
     }
-
+    // Method reads lucky number, decide if above or below 49.
+    //Method could be expanded by taking in to consideration the "change percentage" from getStockInfo method
     public boolean shouldYouBuy(){
         int luckyNumber = astroInfo.getLuckyNumber();
 

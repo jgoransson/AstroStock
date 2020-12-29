@@ -52,6 +52,7 @@ public class AstroStock {
         color = response.getBody().getObject().getString("color");
 
 
+        //Sets variables in AstroInfo Class
         astroInfo.setLuckyNumber(luckyNmr);
         astroInfo.setDailyMessage(message);
         astroInfo.setLuckyColor(color);
@@ -70,9 +71,13 @@ public class AstroStock {
         String stockChange = " ";
 
         final HttpResponse<JsonNode> response = Unirest.get("https://alpha-vantage.p.rapidapi.com/query?")
+                //Api key
                 .header("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f")
+                //Api Host name
                 .header("x-rapidapi-host", "alpha-vantage.p.rapidapi.com")
+                //Specified query (The information that we want to GET)
                 .queryString("function","GLOBAL_QUOTE")
+                // variable stockName = specific stock user has submitted
                 .queryString("symbol",stockName)
                 .asJson();
 
@@ -81,13 +86,15 @@ public class AstroStock {
             stockLow = (response.getBody().getObject().getJSONObject("Global Quote").getString("04. low"));
             stockChange = (response.getBody().getObject().getJSONObject("Global Quote").getString("10. change percent"));
 
+            //Sets variables in StockInfo Class
             stockInfo.setStockHigh(stockHigh);
             stockInfo.setStockLow(stockLow);
             stockInfo.setStockChange(stockChange);
 
 
     }
-
+    // Method reads lucky number, decide if above or below 49.
+    //Method could be expanded by taking in to consideration the "change percentage" from getStockInfo method
     public boolean shouldYouBuy(){
         int luckyNumber = astroInfo.getLuckyNumber();
 
@@ -99,3 +106,5 @@ public class AstroStock {
 
     }
 }
+
+

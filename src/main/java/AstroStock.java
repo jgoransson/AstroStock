@@ -1,18 +1,16 @@
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import org.apache.http.impl.client.HttpClients;
+
 import javax.swing.*;
 
 
 public class AstroStock {
 
-    AstroInfo astroInfo;
-    StockInfo stockInfo;
+    AstroInfo astroInfo = new AstroInfo();
+    StockInfo stockInfo = new StockInfo();
 
     public AstroStock(){
-        new AstroInfo();
-        new StockInfo();
     }
 
 
@@ -21,14 +19,14 @@ public class AstroStock {
 
         String sign = JOptionPane.showInputDialog(null, "Please input Star Sign");
 
-        astroInfo.setastroSign(sign);
+        astroInfo.setAstroSign(sign);
 
     }
 
     //Method uses star sign from AstroInfo Class to retrieve lucky number via Unirest Call to aztro API
     public void getHoroscopeInfo() throws Exception {
 
-        String sign = astroInfo.getastroSign();
+        String sign = astroInfo.getAstroSign();
         String message = " ";
         String color = " ";
         String luckyTime = " ";
@@ -96,6 +94,8 @@ public class AstroStock {
     // Method reads lucky number, decide if above or below 49.
     //Method could be expanded by taking in to consideration the "change percentage" from getStockInfo method
     public boolean shouldYouBuy(){
+
+
         int luckyNumber = astroInfo.getLuckyNumber();
 
         if(luckyNumber<= 49){

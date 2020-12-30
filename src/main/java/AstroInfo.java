@@ -30,11 +30,11 @@ public class AstroInfo {
         this.luckyNumber = luckyNumber;
     }
 
-    public String getastroSign(){
+    public String getAstroSign(){
         return astroSign;
     }
 
-    public void setastroSign(String astroSign){
+    public void setAstroSign(String astroSign){
         this.astroSign = astroSign;
     }
 

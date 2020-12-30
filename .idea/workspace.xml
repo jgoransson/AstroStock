@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa2b3872-a438-4d1c-b7fd-7c6fc56bafbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/StarSign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AstroInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AstroInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AstroStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AstroStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StarSign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StarSign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Start.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +44,9 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
+<<<<<<< Updated upstream
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -65,6 +67,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+=======
+  <component name="RunManager" selected="Application.Start">
+>>>>>>> Stashed changes
     <configuration name="AstroStock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AstroStock" />
       <module name="AstroStock" />
@@ -79,9 +84,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Start" />
+      <module name="AstroStock" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+<<<<<<< Updated upstream
         <item itemvalue="Application.APIRunner" />
+=======
+        <item itemvalue="Application.Start" />
+>>>>>>> Stashed changes
         <item itemvalue="Application.AstroStock" />
         <item itemvalue="Application.Main" />
       </list>
@@ -163,5 +179,19 @@
       <option name="useAntialiasedConnectors" value="true" />
       <option name="packageNameCompressionLevel" value="2" />
     </Packagediagram>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

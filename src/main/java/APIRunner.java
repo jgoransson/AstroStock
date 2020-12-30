@@ -32,7 +32,7 @@ public class APIRunner {
         get("/",(req, res) ->{
 
             int astronummer = astroInfo.getLuckyNumber();
-           String astrisign = astroInfo.getastroSign();
+           String astrisign = astroInfo.getAstroSign();
             //astroInfo.getDailyMessage();
             //astroInfo.getLuckyColor();
 

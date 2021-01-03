@@ -1,5 +1,6 @@
 body{
     margin: 0px 0px 0px 0px;
+    font-family: 'Baloo Chettan 2', cursive;
 }
 
 .wrapper{
@@ -46,11 +47,31 @@ nav{
     
 }
 
+.carousel-inner > .item{
+
+    margin: auto;
+    
+    
+}
+
+
 .carousel-inner > .item > a > img{
-    border-radius: 100%;
+    margin: auto;
+    max-width: 150px;
+    max-height: 200px;
+    
+    /*
+    background-image: url("Images/stars.jpg_fit=scale");
+    */
     
 }
 
 .carousel-inner > .item > #card {
-   margin-left: 20%; 
+   margin: auto;
+}
+
+.carousel-inner > .item > #card > h3{
+
+    text-align: center;
+    color: whitesmoke;
 }

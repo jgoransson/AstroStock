@@ -43,7 +43,7 @@ nav{
     padding-top: 20px;
     width: 25%;
     display: inline-block;
-    margin-left: 42%;
+    margin: auto;
     align-items: center;
     height: 38%;
     
@@ -96,18 +96,51 @@ main{
     background-color: #828282;
 }
 
+#searchbar{
+
+    margin-left: 43%;
+    padding-top: 20px;
+    
+}
+
+#searchbar > *{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+#searchbar > #search{
+    border-radius: 5px;
+    background-color: #3399ff;
+    font-weight: bolder;
+}
+
+#searchbar > #bar{
+    
+    border-radius: 5px;
+
+}
+
 #quote{
     text-align: center;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
 .stockbox{
-    display: inline-flex;
-    margin-left: 18%;
+    display: block;
+    margin-left: 38%;
     border-style: solid;
+    max-width: 25%;
+    
 }
 
-main > .stockbox > h3{
+#stockhead{
+    max-height: 55px;
+    display: block;
+    text-align: center;
+    
+}
+
+main > .stockbox > #stockhead > h3{
     display: block;
     border-bottom: solid;
     border-right: solid;
@@ -117,7 +150,23 @@ main > .stockbox > h3{
     font-weight: bolder;
     margin-top: 0px;
     padding: 0px 5px 3px 10px; 
+    
 }
 
+#container1{
+
+    
+    text-align: center;
+}
+
+#container1 > ul{
+
+    list-style: none;
+}
+
+#container2{
+
+    margin-top: 5%;
+}
 
 

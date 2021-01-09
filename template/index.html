@@ -13,31 +13,40 @@
     <body>
 
         <!-- All Javascript -->
-        <script>
+        <script type="text/javascript">
+            //variable for data from each zodiac
+        function requestZodiac(){
+            return function() {
+                var data = [];
+                
+                var currentIndex = $('div.active').index() + 1;
 
-            //Creating a request variable//
-            var request = new XMLHttpRequest()
+                var searchInfo = document.getElementById("bar").value;
 
-            // Opens a connection to API//
-            request.open('GET', 'API URL here')
+                data.push(currentIndex, searchInfo);
 
-            //Getting json data//
-            request.onload = function() {
-                var data = JSON.parse(this.response)
+                alert(data.toString());
 
-                if (request.status >= 200 && request.status < 400) {
-                    data.forEach((sign) => {
-                        console.log(sign)
-                    })
-                        
-                } else {
-                    console.log('error')
-                }
+                $.ajax({
+                method: "GET",
+                // Till en route på vår server där vi kommer åt APIet
+                url: "http://localhost:8080",
+                // Datan från formuläret skickas
+                data: form_data,
+                // Berättar för APIet att vi vill ha JSON tillbaka
+                headers: {"Accept": "application/json"},
+                crossOrigin: true,
+            })
+
+                .done(function(response) {
+                console.log(response);
+                });
+
+                alert(response);
+            
             }
-            //sending request//
-            request.send()
 
-
+        }
 
 
         </script>
@@ -46,8 +55,8 @@
                 <h1>AstroStock</h1>
             </header>
             <nav>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators for which button is showing -->
+                <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
+                    <!-- Indicators for which div is showing -->
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -65,35 +74,35 @@
                     <!--Items showing in the carousel-->
                     <div class="carousel-inner">
                         <div id="aqua" class="item active">
-                            <button id="post" value="aquarius">
+                            <div id="post" name="aquarius">
                                 <img src="images/aquarius.PNG" alt="aquarius" width="60%">
-                            </button>
+                            </div>
                             <div id="card" class="item">
                                 <h3>Aquarius</h3>
                             </div>
                         </div>
                         <div id="aries" class="item">
-                            <button id="post" value="aries">
+                            <div id="post"  value="aries">
                                 <img src="images/aries.PNG" alt="aries" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Aries</h3>
                             </div>
                         </div>
                         
                         <div id="cancer" class="item">
-                            <button id="post" value="cancer">
+                            <div id="post" onclick="requestZodiac()" value="cancer">
                                 <img src="images/cancer.PNG" alt="cancer" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Cancer</h3>
                             </div>
                         </div>
                     
                         <div id="capricorn" class="item">
-                            <button id="post" value="capricorn">
+                            <div id="post" onclick="requestZodiac()" value="capricorn">
                                 <img src="images/capricorn.PNG" alt="capricorn" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Capricorn</h3>
                             </div>
@@ -101,72 +110,72 @@
                         
                         
                         <div id="gemini" class="item">
-                            <button id="post" value="gemini">
+                            <div id="post" onclick="requestZodiac()" value="gemini">
                                 <img src="images/gemini.PNG" alt="gemini" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Gemini</h3>
                             </div>
                         </div>
                         
                         <div id="leo" class="item">
-                            <button id="post" value="leo">
+                            <div id="post" onclick="requestZodiac()" value="leo">
                                 <img src="images/leo.PNG" alt="Leo" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Leo</h3>
                             </div>
                         </div>
                         
                         <div id="libra" class="item">
-                            <button id="post" value="libra">
+                            <div id="post" onclick="requestZodiac()" value="libra">
                                 <img src="images/libra.PNG" alt="libra" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Libra</h3>
                             </div>
                         </div>
                         
                         <div id="pisces" class="item">
-                            <button id="post" value="pisces">
+                            <div id="post" onclick="requestZodiac()" value="pisces">
                                 <img src="images/pisces.PNG" alt="pisces" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Pisces</h3>
                             </div>
                         </div>
                         
                         <div id="sagittarius" class="item">
-                            <button id="post" value="sagittarius">
+                            <div id="post" onclick="requestZodiac()" value="sagittarius">
                                 <img src="images/sagittarius.PNG" alt="sagittarius" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Sagittarius</h3>
                             </div>
                         </div>
                         
                         <div id="scorpio" class="item">
-                            <button id="post" value="scorpio">
+                            <div id="post" onclick="requestZodiac()" value="scorpio">
                                 <img src="images/scorpio.PNG" alt="scorpio" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Scorpio</h3>
                             </div>
                         </div>
                         
                         <div id="taurus" class="item">
-                            <button id="post" value="taurus">
+                            <div id="post" onclick="requestZodiac()" value="taurus">
                                 <img src="images/taurus.PNG" alt="taurus" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Taurus</h3>
                             </div>
                         </div>
                         
                         <div id="virgo" class="item">
-                            <button id="post" value="virgo">
+                            <div id="post" onclick="requestZodiac()" value="virgo">
                                 <img src="images/virgo.PNG" alt="virgo" width="60%">
-                            </button>
+                            </div>
                             <div id="card">
                                 <h3>Virgo</h3>
                             </div>
@@ -186,23 +195,49 @@
             </nav>
             <!--The main section where info is showing-->
             <main>
-                <section id="quote">
-                    <p>
-                        Här kommer dagens citat
-                    </p>
-                </section>
+                <div>
+                    <form id="searchbar">
+                        <button id="search" onclick="requestZodiac()" name = "searchbtn" type="submit">Search</button>
+                        <input id="bar" type="text" name="searchfield" placeholder="Search for stock...">
+                    </form>
+                </div>
+
+                <!--Stocks from API-->
                 <section id="container1" class="stockbox">
-                    <h3>
-                        Dagens Tips:
-                    </h3>
-                    <p>
-                        Här kommer en ruta med aktier vara
-                    </p>
+                    <div id="stockhead">
+                        <h3>
+                            AstroTips:
+                        </h3>
+                    </div>
+                    <ul>
+                        <li>
+                            Microsoft (MSFT)
+                        </li>
+                        <li>
+                            Apple (AAPL)
+                        </li>
+                        <li>
+                            Amazon (AMZN)
+                        </li>
+                        <li>
+                            Alphabet INC (GOOGL)
+                        </li>
+                        <li>
+                            Facebook (FB)
+                        </li>
+                    </ul>
                 </section>
                 <section id="container2" class="stockbox">
-                    <h3>
-                        Dagens Vinnare:
-                    </h3>
+                    <div id="stockhead">
+                        <h3>
+                            AstroAnalysis:
+                        </h3>
+                    </div>
+                    <!--Quote of the day-->
+                    <section id="quote">
+                        <p>
+                        </p>
+                    </section>
                     <p>
                         Här kommer en annan ruta med dagens tips vara
                     </p>

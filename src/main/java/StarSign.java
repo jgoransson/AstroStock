@@ -15,4 +15,5 @@ public enum StarSign {
     Capricorn,
     Aquarius,
     Pisces
+
 }

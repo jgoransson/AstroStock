@@ -70,9 +70,10 @@ nav{
 }
 
 .carousel-inner > .item > img{
+    display: inline;
     margin: auto;
-    max-width: 300px;
-    max-height: 200px;
+    max-width: auto;
+    max-height: auto;
     padding: 0px;;
     
     /*

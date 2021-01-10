@@ -56,12 +56,13 @@ nav{
     
 }
 
-.carousel-inner > .item > button{
+.carousel-inner > .item > #post{
     background-color: #404040;
     margin: auto;
     border: none;
     max-height: 300px;
     max-width: 400px;
+    
    
    /* border-radius: 60%;
     box-shadow: 5px 5px 5px black;
@@ -70,8 +71,8 @@ nav{
 
 .carousel-inner > .item > img{
     margin: auto;
-    max-width: 400px;
-    max-height: 300px;
+    max-width: 300px;
+    max-height: 200px;
     padding: 0px;;
     
     /*
@@ -96,6 +97,7 @@ main{
     background-color: #828282;
 }
 
+/* CSS for the search bar and button */
 #searchbar{
 
     margin-left: 43%;
@@ -119,6 +121,10 @@ main{
     border-radius: 5px;
 
 }
+
+/*  End of CSS for the search bar and button */
+
+/* CSS for the boxes in the main section */
 
 #quote{
     text-align: center;
@@ -169,4 +175,4 @@ main > .stockbox > #stockhead > h3{
     margin-top: 5%;
 }
 
-
+/* End of CSS for the boxes in the main section */

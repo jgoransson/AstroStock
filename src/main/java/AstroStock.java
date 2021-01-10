@@ -34,6 +34,7 @@ public class AstroStock {
 
 
         //Sends API key and host credentials. Sends a post with query for selected horoscope and day
+
         final HttpResponse<JsonNode> response = Unirest.post("https://sameer-kumar-aztro-v1.p.rapidapi.com/")
                 //Api key
                 .header("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f")
@@ -45,12 +46,14 @@ public class AstroStock {
                 .asJson();
 
         //parse string lucky number into int
+
         luckyNmr = Integer.parseInt((response.getBody().getObject().getString("lucky_number")));
         message = response.getBody().getObject().getString("description");
         color = response.getBody().getObject().getString("color");
 
 
-        //Sets variables in AstroInfo Class
+        //Sets variables in AstroInfo Class. LuckyNumber, Daily Message and Daily Color.
+
         astroInfo.setLuckyNumber(luckyNmr);
         astroInfo.setDailyMessage(message);
         astroInfo.setLuckyColor(color);
@@ -59,8 +62,9 @@ public class AstroStock {
 
 
     //Unfinished/Unimplemented method which send GET request to Alpha Vantage.
-    // Currently hard coded to IBM stock and daily low point.
+    //Currently hard coded to IBM stock and daily low point.
     //Method returns separate String variables with Stock and daily low point
+
     public void getStockInfo() throws Exception {
 
         String stockName = stockInfo.getStockName();
@@ -84,7 +88,8 @@ public class AstroStock {
             stockLow = (response.getBody().getObject().getJSONObject("Global Quote").getString("04. low"));
             stockChange = (response.getBody().getObject().getJSONObject("Global Quote").getString("10. change percent"));
 
-            //Sets variables in StockInfo Class
+            //Sets variables in StockInfo Class. Daily High, Daily Low and Daily Change
+
             stockInfo.setStockHigh(stockHigh);
             stockInfo.setStockLow(stockLow);
             stockInfo.setStockChange(stockChange);
@@ -93,8 +98,8 @@ public class AstroStock {
     }
     // Method reads lucky number, decide if above or below 49.
     //Method could be expanded by taking in to consideration the "change percentage" from getStockInfo method
-    public boolean shouldYouBuy(){
 
+    public boolean shouldYouBuy(){
 
         int luckyNumber = astroInfo.getLuckyNumber();
 

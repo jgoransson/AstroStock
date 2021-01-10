@@ -1,4 +1,4 @@
-//Enum types for use in correctly identifying Star Sign
+package Client;//Enum types for use in correctly identifying Star Sign
 
 
 public enum StarSign {

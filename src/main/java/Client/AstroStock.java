@@ -1,3 +1,5 @@
+package Client;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -23,7 +25,7 @@ public class AstroStock {
 
     }
 
-    //Method uses star sign from AstroInfo Class to retrieve lucky number via Unirest Call to aztro API
+    //Method uses star sign from Client.AstroInfo Class to retrieve lucky number via Unirest Call to aztro API
     public void getHoroscopeInfo() throws Exception {
 
         String sign = astroInfo.getAstroSign();
@@ -52,7 +54,7 @@ public class AstroStock {
         color = response.getBody().getObject().getString("color");
 
 
-        //Sets variables in AstroInfo Class. LuckyNumber, Daily Message and Daily Color.
+        //Sets variables in Client.AstroInfo Class. LuckyNumber, Daily Message and Daily Color.
 
         astroInfo.setLuckyNumber(luckyNmr);
         astroInfo.setDailyMessage(message);
@@ -88,7 +90,7 @@ public class AstroStock {
             stockLow = (response.getBody().getObject().getJSONObject("Global Quote").getString("04. low"));
             stockChange = (response.getBody().getObject().getJSONObject("Global Quote").getString("10. change percent"));
 
-            //Sets variables in StockInfo Class. Daily High, Daily Low and Daily Change
+            //Sets variables in Client.StockInfo Class. Daily High, Daily Low and Daily Change
 
             stockInfo.setStockHigh(stockHigh);
             stockInfo.setStockLow(stockLow);

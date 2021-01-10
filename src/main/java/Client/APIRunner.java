@@ -1,14 +1,11 @@
-/**
+package Client; /**
  * @Created 29/12/2020
- * @Project AstroStock
+ * @Project Client.AstroStock
  * @auther Mewk
  */
 
 
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static spark.Spark.*;
 
@@ -22,9 +19,9 @@ public class APIRunner {
         StockInfo stockInfo = new StockInfo();
 
         /**
-         * Tanken var att få ut en lista med alla get-metoder från AstroInfo nedan. Se bortkommenterad kod..
+         * Tanken var att få ut en lista med alla get-metoder från Client.AstroInfo nedan. Se bortkommenterad kod..
          */
-        //ArrayList<AstroInfo> astrolist = new ArrayList<AstroInfo>();
+        //ArrayList<Client.AstroInfo> astrolist = new ArrayList<Client.AstroInfo>();
 
 
         Gson gson = new Gson();

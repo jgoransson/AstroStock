@@ -15,9 +15,9 @@
         <!-- All Javascript -->
         <script type="text/javascript">
             //variable for data from each zodiac
-        /*function requestZodiac(){
+        function requestZodiac(){
             return function() {
-                var data = [];
+                var ASdata = [];
                 
                 var currentIndex = $('div.active').index() + 1;
 
@@ -32,7 +32,7 @@
                 // Till en route på vår server där vi kommer åt APIet
                 url: "http://localhost:5000",
                 // Datan från formuläret skickas
-                data: form_data,
+                data: ASdata,
                 // Berättar för APIet att vi vill ha JSON tillbaka
                 headers: {"Accept": "application/json"},
                 crossOrigin: true,
@@ -46,7 +46,7 @@
             
             }
 
-        };/* 
+        };
 
 
         </script>
@@ -198,7 +198,7 @@
                 <div>
                     <form id="searchbar">
                         <button id="search" onclick="requestZodiac()" name = "searchbtn" type="submit">Search</button>
-                        <input id="bar" type="text" name="searchfield" placeholder="Search for stock...">
+                        <input id="bar" type="text" type="submit" name="searchfield" placeholder="Search for stock...">
                     </form>
                 </div>
 

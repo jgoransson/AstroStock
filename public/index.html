@@ -14,40 +14,94 @@
 
         <!-- All Javascript -->
         <script type="text/javascript">
-            //variable for data from each zodiac
+
         function requestZodiac(){
-            return function() {
-                var ASdata = [];
-                
-                var currentIndex = $('div.active').index() + 1;
-
-                var searchInfo = document.getElementById("bar").value;
-
-                data.push(currentIndex, searchInfo);
-
-                alert(data.toString());
-
-               $.ajax({
-                method: "GET",
-                // Till en route på vår server där vi kommer åt APIet
-                url: "http://localhost:5000",
-                // Datan från formuläret skickas
-                data: ASdata,
-                // Berättar för APIet att vi vill ha JSON tillbaka
-                headers: {"Accept": "application/json"},
-                crossOrigin: true,
-            })
-
-                .done(function(response) {
-                console.log(response);
-                });
-
-                alert(response);
-            
+	       
+		    var sign;
+		
+		    var searchInfo = document.getElementById("bar").value;
+	
+		    var currentIndex = $('div.active').index +1;
+	
+		    if(currentIndex = 1){
+			    sign = "Aquarius"
+	         }else if (currenIndex = 2){
+			    sign = "Aries"
+		    }else if(currentIndex = 3){
+			    sign = "Cancer"
+		    }else if(CurrentIndex= 4){
+			    sign = "Capricorn"
+		    }else if(currentIndex = 5){
+		    	sign = "Gemini" 
+		    }else if(currenIndex = 6){
+		    	sign="Leo"
+		    }else if(currenIndex = 7){
+		    	sign ="Libra"
+		    }else if (currentIndex = 8){
+		    	sign = "Pisces"
+		    }else if(currentIndex = 9){
+		    	sign = "Sagittarius"
+		    }else if(currentIndex = 10){
+		    	sign="Scorpio"
+		    }else if(currenIndex = 11){
+		    	sign = "Taurus"
+		    }else {
+		    	sign = "Virgo"
             }
+            
+            //document.getElementById("quote").innerText = searchInfo + sign;
+
+            postAstro(sign);
+            //postStock(searchInfo);
+        };
+
+        function postAstro(s){
+            const data = s;
+            var message;
+
+            //document.getElementById("quote").innerText = s + q;
+
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    console.log(this.responseText);
+                }
+            });
+
+            xhr.open("POST", "https://sameer-kumar-aztro-v1.p.rapidapi.com/");
+            xhr.setRequestHeader("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f");
+            xhr.setRequestHeader("x-rapidapi-host", "sameer-kumar-aztro-v1.p.rapidapi.com");
+            xhr.setResponseHeader("day","Today");
+            xhr.setResponseHeader("sign",data);
+
+            xhr.send();
+
+            message = xhr.getElementByTagName()
+
+            document.getElementById("quote").innerText = message;
 
         };
 
+       /* function postStock(q){
+            const data = q;
+
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    console.log(this.responseText);
+                }
+            });
+
+            xhr.open("GET", "https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=TSLA");
+            xhr.setRequestHeader("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f");
+            xhr.setRequestHeader("x-rapidapi-host", "alpha-vantage.p.rapidapi.com");
+
+            xhr.send(data);
+        }; */
 
         </script>
         <div class="wrapper">
@@ -197,8 +251,8 @@
             <main>
                 <div>
                     <form id="searchbar">
-                        <button id="search" onclick="requestZodiac()" name = "searchbtn" type="submit">Search</button>
-                        <input id="bar" type="text" type="submit" name="searchfield" placeholder="Search for stock...">
+                        <button id="search" onclick="requestZodiac()" name = "searchbtn" type="button">Search</button>
+                        <input id="bar" type="text" name="searchfield" placeholder="Search for stock...">
                     </form>
                 </div>
 
@@ -239,7 +293,7 @@
                         </p>
                     </section>
                     <p>
-                        Här kommer en annan ruta med dagens tips vara
+                        
                     </p>
                 </section>
             </main>

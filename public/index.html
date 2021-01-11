@@ -9,99 +9,68 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     </head>
     <body>
 
         <!-- All Javascript -->
         <script type="text/javascript">
 
-        function requestZodiac(){
-	       
-		    var sign;
-		
-		    var searchInfo = document.getElementById("bar").value;
-	
-		    var currentIndex = $('div.active').index +1;
-	
-		    if(currentIndex = 1){
-			    sign = "Aquarius"
-	         }else if (currenIndex = 2){
-			    sign = "Aries"
-		    }else if(currentIndex = 3){
-			    sign = "Cancer"
-		    }else if(CurrentIndex= 4){
-			    sign = "Capricorn"
-		    }else if(currentIndex = 5){
-		    	sign = "Gemini" 
-		    }else if(currenIndex = 6){
-		    	sign="Leo"
-		    }else if(currenIndex = 7){
-		    	sign ="Libra"
-		    }else if (currentIndex = 8){
-		    	sign = "Pisces"
-		    }else if(currentIndex = 9){
-		    	sign = "Sagittarius"
-		    }else if(currentIndex = 10){
-		    	sign="Scorpio"
-		    }else if(currenIndex = 11){
-		    	sign = "Taurus"
-		    }else {
-		    	sign = "Virgo"
-            }
+            function requestZodiac(){
             
-            //document.getElementById("quote").innerText = searchInfo + sign;
-
-            postAstro(sign);
-            //postStock(searchInfo);
-        };
-
-        function postAstro(s){
-            const data = s;
-            var message;
-
-            //document.getElementById("quote").innerText = s + q;
-
-            const xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
-            xhr.addEventListener("readystatechange", function () {
-                if (this.readyState === this.DONE) {
-                    console.log(this.responseText);
+                var sign;
+            
+                var searchInfo = document.getElementById("bar").value;
+        
+                var currentIndex = $('div.active').index +1;
+        
+                if(currentIndex = 1){
+                    sign = "Aquarius"
+                }else if (currenIndex = 2){
+                    sign = "Aries"
+                }else if(currentIndex = 3){
+                    sign = "Cancer"
+                }else if(CurrentIndex= 4){
+                    sign = "Capricorn"
+                }else if(currentIndex = 5){
+                    sign = "Gemini" 
+                }else if(currenIndex = 6){
+                    sign="Leo"
+                }else if(currenIndex = 7){
+                    sign ="Libra"
+                }else if (currentIndex = 8){
+                    sign = "Pisces"
+                }else if(currentIndex = 9){
+                    sign = "Sagittarius"
+                }else if(currentIndex = 10){
+                    sign="Scorpio"
+                }else if(currenIndex = 11){
+                    sign = "Taurus"
+                }else {
+                    sign = "Virgo"
                 }
-            });
+                
+            };
 
-            xhr.open("POST", "https://sameer-kumar-aztro-v1.p.rapidapi.com/");
-            xhr.setRequestHeader("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f");
-            xhr.setRequestHeader("x-rapidapi-host", "sameer-kumar-aztro-v1.p.rapidapi.com");
-            xhr.setResponseHeader("day","Today");
-            xhr.setResponseHeader("sign",data);
+            function getAstro(){
 
-            xhr.send();
+                const astro = () => {
+                    axios.get('https://sameer-kumar-aztro-v1.p.rapidapi.com/').then(response => {
+                        console.log(response);
+                    });
+                };
 
-            message = xhr.getElementByTagName()
-
-            document.getElementById("quote").innerText = message;
-
-        };
-
-       /* function postStock(q){
-            const data = q;
-
-            const xhr = new XMLHttpRequest();
-            xhr.withCredentials = true;
-
-            xhr.addEventListener("readystatechange", function () {
-                if (this.readyState === this.DONE) {
-                    console.log(this.responseText);
-                }
-            });
-
-            xhr.open("GET", "https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=TSLA");
-            xhr.setRequestHeader("x-rapidapi-key", "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f");
-            xhr.setRequestHeader("x-rapidapi-host", "alpha-vantage.p.rapidapi.com");
-
-            xhr.send(data);
-        }; */
+                const sendAstro = () => {
+                    axios.post('https://sameer-kumar-aztro-v1.p.rapidapi.com/', {
+                        day: "today",
+                        sign: "Aquarius"
+                    })
+                    .then(response => {
+                        document.getElementById("quote").innerText = response
+                })
+            }};
+            
+        
 
         </script>
         <div class="wrapper">
@@ -298,7 +267,12 @@
                 </section>
             </main>
             <footer>
-
+                <p id="ast">
+                    AstroStock:
+                </p>
+                <p id="devs">
+                    Marianne Mukanga, Carolin Nordström, Gustaf Hermansson, Jonathan Göransson
+                </p>
             </footer>
         </div> 
     </body>

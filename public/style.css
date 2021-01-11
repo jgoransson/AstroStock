@@ -1,6 +1,7 @@
 body{
     margin: 0px 0px 0px 0px;
     font-family: 'Baloo Chettan 2', cursive;
+    background-color: #828282;
 }
 
 /* Creating the grid layout */
@@ -80,18 +81,21 @@ nav{
 
 .carousel-inner > .item > #card {
    margin: auto;
+   
 }
 
 .carousel-inner > .item > #card > h3{
 
     text-align: center;
     color: whitesmoke;
+    margin-bottom: 10px;
 }
 
 /* CSS for the <main> area */
 
 main{
     background-color: #828282;
+    min-height: 50%;
 }
 
 /* CSS for the search bar and button */
@@ -185,3 +189,23 @@ main > .stockbox > #stockhead > h3{
 }
 
 /* End of CSS for the boxes in the main section */
+
+/* Start CSS for footer */
+
+footer{
+    
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    font-weight: bolder;
+    
+}
+
+footer > #ast{
+    padding-top: 10px;
+}
+
+footer > #devs {
+    padding-bottom: 10px;
+    margin: 0px;
+}

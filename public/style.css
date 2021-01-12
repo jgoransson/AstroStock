@@ -99,22 +99,55 @@ main{
 }
 
 /* CSS for the search bar and button */
-#searchbar{
+#searchform {
+    display: block;
+    margin:auto;
+    border: solid;
+    max-width: 25%;
+    background-color: #404040;
+    border-radius: 8px;
+    margin-bottom: 2%;
+}
 
-    margin-left: 43%;
-    padding-top: 20px;
+#searchform > #stockhead{
+    max-height: 55px;
+    display: block;
+    text-align: center;
     
 }
 
-#searchbar > *{
-    padding-left: 3px;
-    padding-right: 3px;
+#searchform > #stockhead > h3{
+    display: block;
+    border-bottom: solid;
+    background-color: #3399ff;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 0px;
+    padding: 0px 5px 3px 10px; 
+    
+}
+
+#searchbar{
+
+    text-align: center;
+    margin: auto;
+    
+}
+
+#searchbar > .inputbars {
+
+    margin-top: 15px;
+
 }
 
 #searchbar > #search{
     border-radius: 5px;
     background-color: #3399ff;
     font-weight: bolder;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #searchbar > #bar{
@@ -130,7 +163,21 @@ main{
 #quote{
     text-align: center;
     padding-top: 5px;
+    color: whitesmoke;
 }
+
+#stockInfo{
+    text-align: center;
+    padding-top: 5px;
+    color: whitesmoke;
+}
+
+#buy{
+    text-align: center;
+    padding-top: 5px;
+    color: whitesmoke;
+}
+
 
 .stockbox{
     display: block;
@@ -178,15 +225,10 @@ main > .stockbox > #stockhead > h3{
     font-weight: bolder;
     text-align: center;
     margin-top: 2%;
-    padding-bottom: 30px;
+    padding-bottom: 2%;
     
 }
 
-#container2 > p{
-
-    margin-top: 2%;
-    color: whitesmoke;
-}
 
 /* End of CSS for the boxes in the main section */
 

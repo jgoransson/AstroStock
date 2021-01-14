@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <title>AstroStock</title>
+        <meta charset="utf-8">
+        <link href="style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Getting Bootstrap Library-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+
+        <!-- All Javascript -->
+        <script type="text/javascript">
+
+            function requestZodiac(){
+                
+                var searchSign = document.getElementById("sign").value;
+                var searchStock = document.getElementById("stock").value;
+
+
+                
+                getAstro(searchSign, searchStock);
+            };
+
+            function getAstro(p, q){
+                var sign = p;
+                var stock = q;
+                const astroSettings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=" + sign + "&day=today",
+                    "method": "POST",
+                    "headers": {
+                        "x-rapidapi-key": "2a3e80331bmsha98210970be18e2p182dc0jsndd61b2e10e0d",
+                        "x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com"
+                    }
+                }
+
+                $.ajax(astroSettings).done(function (r) {
+                    console.log(r);
+
+                    var description = r['description']
+                    var luckyNumb = r['lucky_number']
+
+                    $('#quote').html("Message of the day:" + '</br>' + description);
+                    
+                    
+                    buyStock(luckyNumb)
+                });
+
+                const stockSettings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=" + stock,
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-key": "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f",
+                        "x-rapidapi-host": "alpha-vantage.p.rapidapi.com"}
+
+                        
+
+                    }
+
+                    $.ajax(stockSettings).done(function (response) {
+                            console.log(response);
+                            //var content = response.global_quote.symbol;
+                            //$("#quote").append(content)
+
+                            var symbol = response['Global Quote']['01. symbol']
+                            var open = response['Global Quote']['02. open']
+                            var price = response['Global Quote']['05. price']
+                            var changePercent = response['Global Quote']['10. change percent']
+
+                            $('#stockInfo').html("Stock Name: " + symbol + '</br>' + "Price on Open : " + open + '</br>' + "Current Price: " +  price + '</br>' + "Change in Percent: " + changePercent);
+                                  
+                        
+                    });
+
+                           
+            };
+
+
+            function buyStock(a) {
+                
+                var number = a;
+
+                const stockSettings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": "https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=" + stock,
+                    "method": "GET",
+                    "headers": {
+                        "x-rapidapi-key": "37528f0ba4msh940fe61e6dbd892p16d3efjsncff2fa9d4c4f",
+                        "x-rapidapi-host": "alpha-vantage.p.rapidapi.com"}
+
+                        
+
+                    }
+
+                    $.ajax(stockSettings).done(function (response) {
+                            console.log(response);
+
+                            var changePercent = response['Global Quote']['10. change percent']
+                                  
+
+                if(a < 49 && changePercent > 0){
+                    $('#buy').html("The stars have aligned in your favor!" + '</br>' + "Buy the stock!");
+                }
+                else {
+                    $('#buy').html("The stars have helped you to save money!" + '</br>' + "Don't buy the stock!");
+                    
+                }
+            });
+        };
+
+
+                
+                
+
+
+                //document.getElementById("quote").innerText = astroSettings.r + stockSettings.response;
+            
+        
+
+        </script>
+        <div class="wrapper">
+            <header>
+                <h1>AstroStock</h1>
+            </header>
+            <nav>
+                
+            </nav>
+            <!--The main section where info is showing-->
+            <main>
+                <fieldset id="searchform">
+                    <div id="stockhead">
+                        <h3>AstroSearch</h3>
+                    </div>
+                    <form id="searchbar">
+                        <input id="sign" type="text" class="inputbars" name="searchfield" placeholder="Search for starsign...">
+                        <input id="stock" type="text" class="inputbars" name="searchfield" placeholder="Search for stock...">
+                        <button id="search" onclick="requestZodiac()" name = "searchbtn" type="button">Search</button>
+                    </form>
+                </fieldset>
+
+                <!--Stocks from API-->
+                <section id="container1" class="stockbox">
+                    <div id="stockhead">
+                        <h3>
+                            AstroTips:
+                        </h3>
+                    </div>
+                    <ul>
+                        <li>
+                            Microsoft (MSFT)
+                        </li>
+                        <li>
+                            Apple (AAPL)
+                        </li>
+                        <li>
+                            Amazon (AMZN)
+                        </li>
+                        <li>
+                            Alphabet INC (GOOGL)
+                        </li>
+                        <li>
+                            Facebook (FB)
+                        </li>
+                    </ul>
+                </section>
+                <section id="container2" class="stockbox">
+                    <div id="stockhead">
+                        <h3>
+                            AstroAnalysis:
+                        </h3>
+                    </div>
+                    <!--Quote of the day-->
+                    <section>
+                        <p id="quote">
+
+                        </p>
+                        <p id="stockInfo">
+
+                        </p>
+
+                        <p id="buy">
+
+                        </p>
+                    </section>
+                </section>
+            </main>
+            <footer>
+                <p id="ast">
+                    AstroStock:
+                </p>
+                <p id="devs">
+                    Marianne Mukanga, Carolin Nordström, Gustaf Hermansson, Jonathan Göransson
+                </p>
+            </footer>
+        </div> 
+    </body>
+</html>

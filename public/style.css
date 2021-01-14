@@ -1,0 +1,253 @@
+body{
+    margin: 0px 0px 0px 0px;
+    font-family: 'Baloo Chettan 2', cursive;
+    background-color: #828282;
+}
+
+/* Creating the grid layout */
+.wrapper{
+    display: grid inline;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "header header header"
+    "nav nav nav"
+    "main main main"
+    "footer footer footer";
+    
+
+}
+ /* CSS for everything in the <header> area */
+header{
+    background-color: black;
+    text-align: center;
+    height: 6em;
+    
+}
+
+header > h1{
+    color: whitesmoke;
+    padding-top: 1%;
+    font-size: 60px;
+    margin-top: 0px;
+}
+
+
+/* CSS for everything in the <nav> area*/
+
+nav{
+    background-color: #404040;
+    
+}
+
+.carousel-inner > * {
+    padding-top: 20px;
+    width: 25%;
+    display: inline-block;
+    margin: auto;
+    align-items: center;
+    height: 38%;
+    
+}
+
+.carousel-inner > .item{
+
+    margin: auto;
+    
+    
+}
+
+.carousel-inner > .item > #post{
+    background-color: #404040;
+    margin: auto;
+    border: none;
+    max-height: 300px;
+    max-width: 400px;
+    
+   
+   /* border-radius: 60%;
+    box-shadow: 5px 5px 5px black;
+    */
+}
+
+.carousel-inner > div > #post > img{
+    display: block;
+    margin: auto;
+    max-width: auto;
+    max-height: auto;
+    padding: 0px;
+    
+}
+
+.carousel-inner > .item > #card {
+   margin: auto;
+   
+}
+
+.carousel-inner > .item > #card > h3{
+
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+/* CSS for the <main> area */
+
+main{
+    background-color: #828282;
+    min-height: 50%;
+}
+
+/* CSS for the search bar and button */
+#searchform {
+    display: block;
+    margin:auto;
+    border: solid;
+    max-width: 25%;
+    background-color: #404040;
+    border-radius: 8px;
+    margin-bottom: 2%;
+}
+
+#searchform > #stockhead{
+    max-height: 55px;
+    display: block;
+    text-align: center;
+    
+}
+
+#searchform > #stockhead > h3{
+    display: block;
+    border-bottom: solid;
+    background-color: #3399ff;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 0px;
+    padding: 0px 5px 3px 10px; 
+    
+}
+
+#searchbar{
+
+    text-align: center;
+    margin: auto;
+    
+}
+
+#searchbar > .inputbars {
+
+    margin-top: 15px;
+
+}
+
+#searchbar > #search{
+    border-radius: 5px;
+    background-color: #3399ff;
+    font-weight: bolder;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#searchbar > #bar{
+    
+    border-radius: 5px;
+
+}
+
+/*  End of CSS for the search bar and button */
+
+/* CSS for the boxes in the main section */
+
+#quote{
+    text-align: center;
+    padding-top: 5px;
+    color: whitesmoke;
+}
+
+#stockInfo{
+    text-align: center;
+    padding-top: 5px;
+    color: whitesmoke;
+}
+
+#buy{
+    text-align: center;
+    padding-top: 5px;
+    color: whitesmoke;
+}
+
+
+.stockbox{
+    display: block;
+    margin:auto;
+    border-style: solid;
+    max-width: 25%;
+    background-color: #404040;
+    border-radius: 8px;
+    
+    
+}
+
+#stockhead{
+    max-height: 55px;
+    display: block;
+    text-align: center;
+    
+}
+
+main > .stockbox > #stockhead > h3{
+    display: block;
+    border-bottom: solid;
+    background-color: #3399ff;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 0px;
+    padding: 0px 5px 3px 10px; 
+    
+}
+
+#container1{
+
+    
+    text-align: center;
+}
+
+#container1 > ul{
+    font-weight: bolder;
+    padding: 0px;
+    list-style: none;
+    color: whitesmoke;
+}
+
+#container2{
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 2%;
+    padding-bottom: 2%;
+    
+}
+
+
+/* End of CSS for the boxes in the main section */
+
+/* Start CSS for footer */
+
+footer{
+    
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    font-weight: bolder;
+    
+}
+
+footer > #ast{
+    padding-top: 10px;
+}
+
+footer > #devs {
+    padding-bottom: 10px;
+    margin: 0px;
+}
